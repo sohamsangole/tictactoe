@@ -80,6 +80,12 @@ def winstate():
 
     return None
 
+def drawstate():
+    for i in range(3):
+        for j in range(3):
+            if BOARDSTATE[i][j] == '-':
+                return False
+    return True
 
 def printBoard():
     for i in range(3):
@@ -110,6 +116,9 @@ while running:
                 printBoard()
                 if winstate() != None:
                     print("AND THE WINNER IS : ",winstate())
+                    running = False
+                if drawstate():
+                    print("ITS A DRAW!")
                     running = False
 
     drawBoard()
